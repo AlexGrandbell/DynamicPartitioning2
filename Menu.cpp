@@ -77,7 +77,19 @@ void Menu::setRAMSize() {
         return;
     }
     //修改内存大小
-    cpu.ram->totalSize = size;
+    //更改CPU的RAM
+    switch (mode) {
+        case 1:
+            cpu = CPU(new FirstRAM(size));
+            break;
+        case 2:
+            cpu = CPU(new BestRAM(size));
+            break;
+        default:
+            cpu = CPU(new WorstRAM(size));
+            break;
+    }
+    cout<<"内存大小更改成功，已重新分配空的内存"<<endl;
 }
 
 //分配内存
