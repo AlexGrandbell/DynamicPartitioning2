@@ -13,8 +13,7 @@ public:
     bool isFree; //是否空闲
     int processId; //进程id
 
-    PartitionSpace(int startAddress, int assignedSize): startAddress(startAddress), assignedSize(assignedSize), isFree(true), processId(-1){}
-
+    PartitionSpace(int startAddress, int assignedSize, bool isFree=true, int processId=-1) : startAddress(startAddress), assignedSize(assignedSize), isFree(isFree), processId(processId) {}
 };
 
 
